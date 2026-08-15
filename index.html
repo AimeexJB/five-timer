@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Five</title>
+<link rel="stylesheet" href="main.css">
+<script>
+  (function () {
+    var saved = localStorage.getItem('five-timer-theme');
+    if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+  })();
+</script>
+<script src="main.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <label class="theme-switch" for="themeToggle">
+      <input type="checkbox" id="themeToggle" aria-label="Toggle light mode">
+      <span class="switch-track"><span class="switch-thumb"></span></span>
+    </label>
+
+    <div class="brand">Five</div>
+
+    <div class="ring-wrap" id="ringWrap" role="button" tabindex="0" aria-label="Start or pause timer">
+      <svg viewBox="0 0 280 280">
+        <circle class="track" cx="140" cy="140" r="122"></circle>
+        <circle class="fill" id="fillCircle" cx="140" cy="140" r="122"></circle>
+      </svg>
+      <div class="ring-center">
+        <div class="time" id="timeDisplay">5:00</div>
+        <div class="state-label" id="stateLabel">Tap to start</div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn-primary" id="startPauseBtn">Start</button>
+      <button class="btn-secondary" id="resetBtn">Reset</button>
+    </div>
+
+    <div class="rounds">
+      <div class="rounds-count"><strong id="roundsToday">0</strong> rounds today</div>
+      <div class="dots" id="dots"></div>
+    </div>
+
+    <div class="hint">Click the ring or press space to start/pause</div>
+  </div>
+</body>
+</html>
